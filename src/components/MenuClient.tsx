@@ -271,7 +271,7 @@ const MenuClient = () => {
             </div>
 
             {/* Categories */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 max-md:justify-center">
               {categories.map((category) => (
                 <button
                   key={category.id}
