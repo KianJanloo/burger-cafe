@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://burger-cafe-hazel.vercel.app'),
+  metadataBase: new URL('https://burger-cafee.netlify.app'),
   alternates: {
     canonical: '/',
     languages: {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'fa_IR',
-    url: 'https://burger-cafe-hazel.vercel.app',
+    url: 'https://burger-cafee.netlify.app',
     title: 'Burger Cafe - بهترین برگرهای شهر',
     description: 'کافه برگر با 20 سال تجربه، ارائه بهترین برگرها و نوشیدنی‌های خوشمزه',
     siteName: 'Burger Cafe',

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://burger-cafe-hazel.vercel.app'
+  const baseUrl = 'https://burger-cafee.netlify.app'
   
   return [
     {

@@ -2,15 +2,15 @@
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/🌐%20Live%20Demo-Visit%20Site-00D4AA?style=for-the-badge&logo=vercel)](https://burger-cafe-hazel.vercel.app/)
-[![GitHub](https://img.shields.io/badge/📱%20GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/your-username/burger-cafe)
+[![Live Demo](https://img.shields.io/badge/🌐%20Live%20Demo-Visit%20Site-00D4AA?style=for-the-badge&logo=netlify)](https://burger-cafee.netlify.app/)
+[![GitHub](https://img.shields.io/badge/📱%20GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/KianJanloo/burger-cafe)
 [![Next.js](https://img.shields.io/badge/⚡%20Next.js-15-000000?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/🔷%20TypeScript-5-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/🎨%20Tailwind%20CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
 
 **A complete and modern online ordering system for burger cafe with bilingual support and beautiful user interface**
 
-[🌐 View Live Demo](https://burger-cafe-hazel.vercel.app/) • [📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [💡 Features](#-features)
+[🌐 View Live Demo](https://burger-cafee.netlify.app/) • [📖 Documentation](#-documentation) • [🚀 Quick Start](#-quick-start) • [💡 Features](#-features)
 
 </div>
 
@@ -37,7 +37,7 @@
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/your-username/burger-cafe.git
+git clone https://github.com/KianJanloo/burger-cafe.git
 cd burger-cafe
 
 # 2️⃣ Install dependencies
@@ -51,9 +51,9 @@ npm run dev
 ```
 
 ### 🌐 Access Demo
-- **🌍 Main Website**: [https://burger-cafe-hazel.vercel.app/](https://burger-cafe-hazel.vercel.app/)
-- **🇮🇷 Persian Version**: [https://burger-cafe-hazel.vercel.app/fa](https://burger-cafe-hazel.vercel.app/fa)
-- **🇺🇸 English Version**: [https://burger-cafe-hazel.vercel.app/en](https://burger-cafe-hazel.vercel.app/en)
+- **🌍 Main Website**: [https://burger-cafee.netlify.app/](https://burger-cafee.netlify.app/)
+- **🇮🇷 Persian Version**: [https://burger-cafee.netlify.app/fa](https://burger-cafee.netlify.app/fa)
+- **🇺🇸 English Version**: [https://burger-cafee.netlify.app/en](https://burger-cafee.netlify.app/en)
 
 ---
 
@@ -300,14 +300,15 @@ module.exports = {
 
 ## 🚀 Deployment
 
-### **⚡ Vercel (Recommended)**
+### **⚡ Netlify (Recommended)**
 
 ```bash
-# Install Vercel CLI
-npm i -g vercel
+# Install Netlify CLI
+npm i -g netlify-cli
 
-# Deploy
-vercel --prod
+# Build and deploy
+npm run build
+netlify deploy --prod --dir=.next
 ```
 
 ### **🐳 Docker**
@@ -320,15 +321,14 @@ docker build -t burger-cafe .
 docker run -p 3000:3000 burger-cafe
 ```
 
-### **📦 Netlify**
+### **⚡ Vercel**
 
 ```bash
-# Install Netlify CLI
-npm i -g netlify-cli
+# Install Vercel CLI
+npm i -g vercel
 
-# Build and deploy
-npm run build
-netlify deploy --prod --dir=out
+# Deploy
+vercel --prod
 ```
 
 ---
@@ -406,8 +406,8 @@ netlify deploy --prod --dir=out
 
 ### **🆘 Getting Help**
 - **📧 Email**: support@burgercafe.com
-- **🐛 Bug Reports**: [Create Issue](https://github.com/your-username/burger-cafe/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/your-username/burger-cafe/discussions)
+- **🐛 Bug Reports**: [Create Issue](https://github.com/KianJanloo/burger-cafe/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/KianJanloo/burger-cafe/discussions)
 
 ### **📋 Bug Report**
 When reporting bugs, please include:
@@ -444,8 +444,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 **🍔 Made with love for burger lovers! 🍔**
 
-[![GitHub stars](https://img.shields.io/github/stars/your-username/burger-cafe?style=social)](https://github.com/your-username/burger-cafe)
-[![GitHub forks](https://img.shields.io/github/forks/your-username/burger-cafe?style=social)](https://github.com/your-username/burger-cafe)
-[![GitHub watchers](https://img.shields.io/github/watchers/your-username/burger-cafe?style=social)](https://github.com/your-username/burger-cafe)
+[![GitHub stars](https://img.shields.io/github/stars/KianJanloo/burger-cafe?style=social)](https://github.com/KianJanloo/burger-cafe)
+[![GitHub forks](https://img.shields.io/github/forks/KianJanloo/burger-cafe?style=social)](https://github.com/KianJanloo/burger-cafe)
+[![GitHub watchers](https://img.shields.io/github/watchers/KianJanloo/burger-cafe?style=social)](https://github.com/KianJanloo/burger-cafe)
 
 </div>
