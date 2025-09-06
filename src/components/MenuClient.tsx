@@ -2,16 +2,31 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, Star, Clock, Flame, Plus } from "lucide-react";
+import { Search, Star, Clock, Flame, Plus, ShoppingCart } from "lucide-react";
 import { useTranslations, useLocale } from 'next-intl';
+import useOrderStore from '@/store/orderStore';
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+
+interface MenuItemType {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  rating: number;
+  prepTime: number;
+  isSpicy: boolean;
+  isPopular: boolean;
+  image: string;
+}
 
 const MenuClient = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const t = useTranslations('menu');
   const locale = useLocale();
+  const { addToCart, getCartSummary } = useOrderStore();
 
   const categories = [
     { id: "all", name: t('categories.all'), icon: "🍔" },
@@ -25,137 +40,137 @@ const MenuClient = () => {
   const menuItems = [
     // Classic Burgers
     {
-      id: 1,
+      id: "classic-burger",
       name: t('items.classicBurger.name'),
       description: t('items.classicBurger.description'),
       price: 45000,
       category: "classic",
       rating: 4.9,
-      prepTime: `15 ${t('prepTime')}`,
+      prepTime: 15,
       isSpicy: false,
       isPopular: true,
       image: "🍔",
     },
     {
-      id: 2,
+      id: "double-cheese",
       name: t('items.doubleCheese.name'),
       description: t('items.doubleCheese.description'),
       price: 58000,
       category: "classic",
       rating: 4.9,
-      prepTime: `20 ${t('prepTime')}`,
+      prepTime: 20,
       isSpicy: false,
       isPopular: true,
       image: "🍔",
     },
     {
-      id: 3,
+      id: "bacon-burger",
       name: t('items.baconBurger.name'),
       description: t('items.baconBurger.description'),
       price: 52000,
       category: "classic",
       rating: 4.8,
-      prepTime: `18 ${t('prepTime')}`,
+      prepTime: 18,
       isSpicy: false,
       isPopular: false,
       image: "🍔",
     },
     // Spicy Burgers
     {
-      id: 4,
+      id: "mexican-spicy",
       name: t('items.mexicanSpicy.name'),
       description: t('items.mexicanSpicy.description'),
       price: 52000,
       category: "spicy",
       rating: 4.8,
-      prepTime: `18 ${t('prepTime')}`,
+      prepTime: 18,
       isSpicy: true,
       isPopular: false,
       image: "🌶️",
     },
     {
-      id: 5,
+      id: "red-pepper",
       name: t('items.redPepper.name'),
       description: t('items.redPepper.description'),
       price: 48000,
       category: "spicy",
       rating: 4.7,
-      prepTime: `16 ${t('prepTime')}`,
+      prepTime: 16,
       isSpicy: true,
       isPopular: false,
       image: "🌶️",
     },
     // Vegetarian Burgers
     {
-      id: 6,
+      id: "vegetarian",
       name: t('items.vegetarian.name'),
       description: t('items.vegetarian.description'),
       price: 38000,
       category: "vegetarian",
       rating: 4.7,
-      prepTime: `12 ${t('prepTime')}`,
+      prepTime: 12,
       isSpicy: false,
       isPopular: false,
       image: "🥬",
     },
     {
-      id: 7,
+      id: "mushroom",
       name: t('items.mushroom.name'),
       description: t('items.mushroom.description'),
       price: 42000,
       category: "vegetarian",
       rating: 4.6,
-      prepTime: `14 ${t('prepTime')}`,
+      prepTime: 14,
       isSpicy: false,
       isPopular: false,
       image: "🥬",
     },
     // Drinks
     {
-      id: 8,
+      id: "cola",
       name: t('items.cola.name'),
       description: t('items.cola.description'),
       price: 15000,
       category: "drinks",
       rating: 4.5,
-      prepTime: `2 ${t('prepTime')}`,
+      prepTime: 2,
       isSpicy: false,
       isPopular: false,
       image: "🥤",
     },
     {
-      id: 9,
+      id: "banana-milk",
       name: t('items.bananaMilk.name'),
       description: t('items.bananaMilk.description'),
       price: 25000,
       category: "drinks",
       rating: 4.8,
-      prepTime: `5 ${t('prepTime')}`,
+      prepTime: 5,
       isSpicy: false,
       isPopular: true,
       image: "🥤",
     },
     // Desserts
     {
-      id: 10,
+      id: "cheesecake",
       name: t('items.cheesecake.name'),
       description: t('items.cheesecake.description'),
       price: 35000,
       category: "desserts",
       rating: 4.9,
-      prepTime: `3 ${t('prepTime')}`,
+      prepTime: 3,
       isSpicy: false,
       isPopular: true,
       image: "🍰",
     },
     {
-      id: 11,
+      id: "ice-cream",
       name: t('items.iceCream.name'),
       description: t('items.iceCream.description'),
       price: 20000,
       category: "desserts",
       rating: 4.6,
-      prepTime: `2 ${t('prepTime')}`,
+      prepTime: 2,
       isSpicy: false,
       isPopular: false,
       image: "🍰",
@@ -168,6 +183,25 @@ const MenuClient = () => {
                          item.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
+
+  const handleAddToCart = (item: MenuItemType) => {
+    const menuItem = {
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: item.price,
+      category: item.category as 'classic' | 'spicy' | 'vegetarian' | 'drinks' | 'desserts',
+      prepTime: item.prepTime,
+      badges: [
+        ...(item.isPopular ? ['popular' as const] : []),
+        ...(item.isSpicy ? ['spicy' as const] : [])
+      ] as ('popular' | 'spicy')[],
+      isAvailable: true,
+    };
+    addToCart(menuItem, 1);
+  };
+
+  const cartSummary = getCartSummary();
 
   return (
     <>
@@ -192,6 +226,27 @@ const MenuClient = () => {
           >
             {t('subtitle')}
           </motion.p>
+          
+          {/* Cart Summary */}
+          {cartSummary.totalItems > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-8 inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-white"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              <span className="font-semibold">
+                {cartSummary.totalItems} آیتم - {cartSummary.total.toLocaleString('fa-IR')} تومان
+              </span>
+              <a
+                href={`/${locale}/order`}
+                className="bg-white text-red-600 px-4 py-2 rounded-full font-semibold hover:bg-red-50 transition-colors"
+              >
+                مشاهده سبد خرید
+              </a>
+            </motion.div>
+          )}
         </div>
       </section>
 
@@ -282,7 +337,7 @@ const MenuClient = () => {
                   {/* Prep Time */}
                   <div className="flex items-center gap-2 mb-4 text-sm text-gray-500 dark:text-gray-400">
                     <Clock className="w-4 h-4" />
-                    <span>{item.prepTime}</span>
+                    <span>{item.prepTime} {t('prepTime')}</span>
                   </div>
 
                   {/* Price and Order Button */}
@@ -290,7 +345,10 @@ const MenuClient = () => {
                     <div className="text-2xl font-bold text-red-600 dark:text-red-400">
                       {item.price.toLocaleString()} تومان
                     </div>
-                    <button className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-red-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 flex items-center gap-2">
+                    <button 
+                      onClick={() => handleAddToCart(item)}
+                      className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-red-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                    >
                       <Plus className="w-4 h-4" />
                       {t('order')}
                     </button>

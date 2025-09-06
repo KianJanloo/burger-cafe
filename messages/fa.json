@@ -2,6 +2,7 @@
   "nav": {
     "home": "خانه",
     "menu": "منو",
+    "order": "سفارش",
     "about": "درباره ما",
     "gallery": "گالری",
     "reservation": "رزرو",
@@ -259,6 +260,98 @@
   "loading": {
     "brandName": "کافه برگر",
     "loadingText": "در حال بارگذاری..."
+  },
+  "order": {
+    "title": "سفارش غذا",
+    "subtitle": "سفارش خود را ثبت کنید و از بهترین برگرهای شهر لذت ببرید",
+    "cart": {
+      "title": "سبد خرید",
+      "empty": "سبد خرید شما خالی است",
+      "emptyDesc": "برای شروع، یک آیتم از منو انتخاب کنید",
+      "item": "آیتم",
+      "quantity": "تعداد",
+      "price": "قیمت",
+      "total": "مجموع",
+      "specialInstructions": "دستورات ویژه",
+      "instructionsPlaceholder": "دستورات ویژه خود را وارد کنید...",
+      "remove": "حذف",
+      "update": "به‌روزرسانی"
+    },
+    "checkout": {
+      "title": "تکمیل سفارش",
+      "customerInfo": "اطلاعات مشتری",
+      "orderType": "نوع سفارش",
+      "dineIn": "مصرف در محل",
+      "takeaway": "بیرون‌بر",
+      "delivery": "ارسال",
+      "name": "نام و نام خانوادگی",
+      "phone": "شماره تماس",
+      "email": "ایمیل",
+      "address": "آدرس (برای ارسال)",
+      "specialRequests": "درخواست‌های ویژه",
+      "requestsPlaceholder": "درخواست‌های ویژه خود را وارد کنید...",
+      "orderSummary": "خلاصه سفارش",
+      "subtotal": "جمع جزء",
+      "tax": "مالیات",
+      "deliveryFee": "هزینه ارسال",
+      "discount": "تخفیف",
+      "total": "مجموع کل",
+      "placeOrder": "ثبت سفارش",
+      "processing": "در حال پردازش..."
+    },
+    "history": {
+      "title": "تاریخچه سفارشات",
+      "empty": "هیچ سفارشی یافت نشد",
+      "emptyDesc": "سفارشات شما اینجا نمایش داده می‌شود",
+      "orderNumber": "شماره سفارش",
+      "date": "تاریخ",
+      "status": "وضعیت",
+      "total": "مجموع",
+      "viewDetails": "مشاهده جزئیات",
+      "cancel": "لغو سفارش",
+      "reorder": "سفارش مجدد"
+    },
+    "status": {
+      "pending": "در انتظار",
+      "confirmed": "تأیید شده",
+      "preparing": "در حال آماده‌سازی",
+      "ready": "آماده",
+      "delivered": "تحویل داده شده",
+      "cancelled": "لغو شده"
+    },
+    "types": {
+      "dineIn": "مصرف در محل",
+      "takeaway": "بیرون‌بر",
+      "delivery": "ارسال"
+    },
+    "success": {
+      "title": "سفارش شما ثبت شد!",
+      "message": "سفارش شما با موفقیت ثبت شد و به زودی آماده خواهد شد",
+      "orderNumber": "شماره سفارش",
+      "estimatedTime": "زمان تقریبی آماده‌سازی",
+      "minutes": "دقیقه",
+      "viewOrder": "مشاهده سفارش",
+      "continueShopping": "ادامه خرید"
+    },
+    "filters": {
+      "title": "فیلترها",
+      "status": "وضعیت",
+      "orderType": "نوع سفارش",
+      "dateRange": "بازه زمانی",
+      "from": "از",
+      "to": "تا",
+      "apply": "اعمال",
+      "clear": "پاک کردن"
+    },
+    "details": {
+      "title": "جزئیات سفارش",
+      "orderInfo": "اطلاعات سفارش",
+      "customerInfo": "اطلاعات مشتری",
+      "items": "آیتم‌ها",
+      "preparationTime": "زمان آماده‌سازی",
+      "estimatedDelivery": "زمان تقریبی تحویل",
+      "notes": "یادداشت‌ها"
+    }
   },
   "common": {
     "loading": "در حال بارگذاری...",

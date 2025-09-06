@@ -1,58 +1,78 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star, Clock, Flame } from "lucide-react";
-import Image from "next/image";
+import { Star, Clock, Flame, Plus } from "lucide-react";
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import useOrderStore from '@/store/orderStore';
 
 const FeaturedMenu = () => {
   const t = useTranslations('menu');
+  const { addToCart } = useOrderStore();
+  
   const featuredItems = [
     {
-      id: 1,
+      id: "classic-burger",
       name: t('items.classicBurger.name'),
       description: t('items.classicBurger.description'),
-      price: "45000",
+      price: 45000,
       image: "/api/placeholder/300/200",
       rating: 4.9,
-      prepTime: `15 ${t('prepTime')}`,
+      prepTime: 15,
       isSpicy: false,
       isPopular: true,
     },
     {
-      id: 2,
+      id: "mexican-spicy",
       name: t('items.mexicanSpicy.name'),
       description: t('items.mexicanSpicy.description'),
-      price: "52000",
+      price: 52000,
       image: "/api/placeholder/300/200",
       rating: 4.8,
-      prepTime: `18 ${t('prepTime')}`,
+      prepTime: 18,
       isSpicy: true,
       isPopular: false,
     },
     {
-      id: 3,
+      id: "vegetarian",
       name: t('items.vegetarian.name'),
       description: t('items.vegetarian.description'),
-      price: "38000",
+      price: 38000,
       image: "/api/placeholder/300/200",
       rating: 4.7,
-      prepTime: `12 ${t('prepTime')}`,
+      prepTime: 12,
       isSpicy: false,
       isPopular: false,
     },
     {
-      id: 4,
+      id: "double-cheese",
       name: t('items.doubleCheese.name'),
       description: t('items.doubleCheese.description'),
-      price: "58000",
+      price: 58000,
       image: "/api/placeholder/300/200",
       rating: 4.9,
-      prepTime: `20 ${t('prepTime')}`,
+      prepTime: 20,
       isSpicy: false,
       isPopular: true,
     },
   ];
+
+  const handleAddToCart = (item: typeof featuredItems[0]) => {
+    const menuItem = {
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: item.price,
+      category: 'classic' as const,
+      prepTime: item.prepTime,
+      badges: [
+        ...(item.isPopular ? ['popular' as const] : []),
+        ...(item.isSpicy ? ['spicy' as const] : [])
+      ] as ('popular' | 'spicy')[],
+      isAvailable: true,
+    };
+    addToCart(menuItem, 1);
+  };
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -124,15 +144,19 @@ const FeaturedMenu = () => {
                 {/* Prep Time */}
                 <div className="flex items-center gap-2 mb-4 text-sm text-gray-500 dark:text-gray-400">
                   <Clock className="w-4 h-4" />
-                  <span>{item.prepTime}</span>
+                  <span>{item.prepTime} {t('prepTime')}</span>
                 </div>
 
                 {/* Price and Order Button */}
                 <div className="flex items-center justify-between">
-                  <div className="text-2xl font-bold text-red-600 dark:text-red-400">
+                  <div className="text-lg font-bold text-red-600 dark:text-red-400">
                     {item.price.toLocaleString()} تومان
                   </div>
-                  <button className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-red-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105">
+                  <button 
+                    onClick={() => handleAddToCart(item)}
+                    className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-red-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                  >
+                    <Plus className="w-4 h-4" />
                     {t('order')}
                   </button>
                 </div>
@@ -149,9 +173,12 @@ const FeaturedMenu = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <button className="inline-flex items-center px-8 py-4 border-2 border-red-600 text-red-600 font-semibold rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 transform hover:scale-105">
+          <Link 
+            href="/menu"
+            className="inline-flex items-center px-8 py-4 border-2 border-red-600 text-red-600 font-semibold rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 transform hover:scale-105"
+          >
             {t('viewAll')}
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

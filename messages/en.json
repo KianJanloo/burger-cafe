@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "menu": "Menu",
+    "order": "Order",
     "about": "About",
     "gallery": "Gallery",
     "reservation": "Reservation",
@@ -259,6 +260,98 @@
   "loading": {
     "brandName": "Burger Cafe",
     "loadingText": "Loading..."
+  },
+  "order": {
+    "title": "Order Food",
+    "subtitle": "Place your order and enjoy the best burgers in town",
+    "cart": {
+      "title": "Shopping Cart",
+      "empty": "Your cart is empty",
+      "emptyDesc": "To get started, select an item from the menu",
+      "item": "Item",
+      "quantity": "Quantity",
+      "price": "Price",
+      "total": "Total",
+      "specialInstructions": "Special Instructions",
+      "instructionsPlaceholder": "Enter your special instructions...",
+      "remove": "Remove",
+      "update": "Update"
+    },
+    "checkout": {
+      "title": "Checkout",
+      "customerInfo": "Customer Information",
+      "orderType": "Order Type",
+      "dineIn": "Dine In",
+      "takeaway": "Takeaway",
+      "delivery": "Delivery",
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email",
+      "address": "Address (for delivery)",
+      "specialRequests": "Special Requests",
+      "requestsPlaceholder": "Enter your special requests...",
+      "orderSummary": "Order Summary",
+      "subtotal": "Subtotal",
+      "tax": "Tax",
+      "deliveryFee": "Delivery Fee",
+      "discount": "Discount",
+      "total": "Total",
+      "placeOrder": "Place Order",
+      "processing": "Processing..."
+    },
+    "history": {
+      "title": "Order History",
+      "empty": "No orders found",
+      "emptyDesc": "Your orders will appear here",
+      "orderNumber": "Order Number",
+      "date": "Date",
+      "status": "Status",
+      "total": "Total",
+      "viewDetails": "View Details",
+      "cancel": "Cancel Order",
+      "reorder": "Reorder"
+    },
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "preparing": "Preparing",
+      "ready": "Ready",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "types": {
+      "dineIn": "Dine In",
+      "takeaway": "Takeaway",
+      "delivery": "Delivery"
+    },
+    "success": {
+      "title": "Order Placed Successfully!",
+      "message": "Your order has been placed successfully and will be ready soon",
+      "orderNumber": "Order Number",
+      "estimatedTime": "Estimated Preparation Time",
+      "minutes": "minutes",
+      "viewOrder": "View Order",
+      "continueShopping": "Continue Shopping"
+    },
+    "filters": {
+      "title": "Filters",
+      "status": "Status",
+      "orderType": "Order Type",
+      "dateRange": "Date Range",
+      "from": "From",
+      "to": "To",
+      "apply": "Apply",
+      "clear": "Clear"
+    },
+    "details": {
+      "title": "Order Details",
+      "orderInfo": "Order Information",
+      "customerInfo": "Customer Information",
+      "items": "Items",
+      "preparationTime": "Preparation Time",
+      "estimatedDelivery": "Estimated Delivery",
+      "notes": "Notes"
+    }
   },
   "common": {
     "loading": "Loading...",
