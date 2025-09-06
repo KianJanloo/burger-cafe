@@ -5,7 +5,7 @@ const locales = ['fa', 'en'];
 
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locale || !locales.includes(locale as any)) {
+  if (!locale || !locales.includes(locale as 'fa' | 'en')) {
     // Return default locale instead of notFound
     return {
       locale: 'fa',

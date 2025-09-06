@@ -17,15 +17,15 @@ export default function OrderSuccess({ order, onViewOrder, onContinueShopping }:
     return new Intl.NumberFormat('fa-IR').format(price) + ' تومان';
   };
 
-  const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat('fa-IR', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-    }).format(date);
-  };
+  // const formatDate = (date: Date) => {
+  //   return new Intl.DateTimeFormat('fa-IR', {
+  //     year: 'numeric',
+  //     month: 'long',
+  //     day: 'numeric',
+  //     hour: '2-digit',
+  //     minute: '2-digit',
+  //   }).format(date);
+  // };
 
   const getEstimatedTime = () => {
     const maxPrepTime = Math.max(...order.items.map(item => item.menuItem.prepTime));

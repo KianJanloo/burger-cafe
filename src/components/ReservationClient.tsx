@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, Users, Phone, CheckCircle, MapPin } from "lucide-react";
+import { Clock, Phone, CheckCircle, MapPin } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
 const ReservationClient = () => {
