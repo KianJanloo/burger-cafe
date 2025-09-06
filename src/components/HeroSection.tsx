@@ -10,7 +10,7 @@ const HeroSection = () => {
   const locale = useLocale();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-50 to-orange-50 dark:from-gray-900 dark:to-gray-800">
+    <section className="relative mt-4 min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-red-50 to-orange-50 dark:from-gray-900 dark:to-gray-800">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-32 h-32 bg-red-200 rounded-full blur-3xl"></div>
