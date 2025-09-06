@@ -1,0 +1,23 @@
+# Global code owners
+* @your-username
+
+# Core application files
+/src/ @your-username
+/package.json @your-username
+/next.config.ts @your-username
+/tsconfig.json @your-username
+
+# Documentation
+/README.md @your-username
+/CONTRIBUTING.md @your-username
+/LICENSE @your-username
+
+# Configuration files
+/.github/ @your-username
+/.eslintrc.json @your-username
+/.gitignore @your-username
+/vercel.json @your-username
+
+# Dependencies
+/package-lock.json @your-username
+/yarn.lock @your-username

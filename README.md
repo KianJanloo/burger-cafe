@@ -1,6 +1,35 @@
 # 🍔 Burger Cafe
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge&logo=vercel)](https://burger-cafe.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/your-username/burger-cafe)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+
 A modern, responsive burger cafe website with a comprehensive order management system built with Next.js, TypeScript, Zustand, and Tailwind CSS. This project showcases a complete restaurant ordering system with bilingual support, advanced state management, and a beautiful user interface.
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/your-username/burger-cafe.git
+cd burger-cafe
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Open http://localhost:3000
+```
+
+## 📱 Live Demo
+
+- **🌐 Website**: [https://burger-cafe.vercel.app](https://burger-cafe.vercel.app)
+- **📱 Mobile**: [https://burger-cafe.vercel.app](https://burger-cafe.vercel.app) (Responsive)
+- **🇮🇷 Persian**: [https://burger-cafe.vercel.app/fa](https://burger-cafe.vercel.app/fa)
+- **🇺🇸 English**: [https://burger-cafe.vercel.app/en](https://burger-cafe.vercel.app/en)
 
 ## 🌟 What Makes This Project Special
 
@@ -472,23 +501,90 @@ All components use Tailwind CSS classes and can be easily customized:
 
 ## 🚀 Deployment
 
-### **Vercel (Recommended)**
+### **Vercel (Recommended) - One-Click Deploy**
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/burger-cafe)
+
+#### **Manual Deployment to Vercel**
+
+1. **Install Vercel CLI**
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Deploy to Vercel**
+   ```bash
+   vercel --prod
+   ```
+
+3. **Configure Environment Variables**
+   - Go to Vercel Dashboard → Project Settings → Environment Variables
+   - Add all variables from `.env.example`
+
+#### **GitHub Integration**
 1. Push code to GitHub
 2. Connect repository to Vercel
-3. Deploy automatically
+3. Deploy automatically on every push
 
 ### **Other Platforms**
 
-1. **Build the application**
-   ```bash
-   npm run build
-   ```
+#### **Netlify**
+```bash
+# Install Netlify CLI
+npm i -g netlify-cli
 
-2. **Start production server**
-   ```bash
-   npm start
-   ```
+# Build and deploy
+npm run build
+netlify deploy --prod --dir=out
+```
+
+#### **GitHub Pages**
+```bash
+# Update next.config.ts
+const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
+  images: { unoptimized: true }
+}
+
+# Build and deploy
+npm run build
+npm run export
+```
+
+#### **Docker**
+```dockerfile
+# Dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+RUN npm run build
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+### **Environment Variables**
+
+Create `.env.local` file:
+```env
+NEXT_PUBLIC_APP_NAME=Burger Cafe
+NEXT_PUBLIC_APP_URL=https://your-domain.com
+NEXT_PUBLIC_TAX_RATE=0.09
+NEXT_PUBLIC_DELIVERY_FEE=15000
+```
+
+### **Domain Setup**
+
+1. **Custom Domain**
+   - Add domain in Vercel Dashboard
+   - Update DNS records
+   - Enable HTTPS automatically
+
+2. **Subdomain**
+   - Use `burger-cafe.vercel.app`
+   - Or custom subdomain like `cafe.yourdomain.com`
 
 ## 📊 Performance
 

@@ -12,9 +12,79 @@ const vazir = Vazirmatn({
 });
 
 export const metadata: Metadata = {
-  title: "Burger Cafe - بهترین برگرهای شهر",
-  description: "کافه برگر با 20 سال تجربه، ارائه بهترین برگرها و نوشیدنی‌های خوشمزه",
-  keywords: "برگر، کافه، رستوران، غذا، نوشیدنی",
+  title: {
+    default: "Burger Cafe - بهترین برگرهای شهر",
+    template: "%s | Burger Cafe"
+  },
+  description: "کافه برگر با 20 سال تجربه، ارائه بهترین برگرها و نوشیدنی‌های خوشمزه. سیستم سفارش آنلاین، رزرو میز و تحویل درب منزل.",
+  keywords: [
+    "برگر",
+    "کافه",
+    "رستوران",
+    "غذا",
+    "نوشیدنی",
+    "سفارش آنلاین",
+    "رزرو میز",
+    "تحویل درب منزل",
+    "برگر کلاسیک",
+    "برگر تند",
+    "برگر گیاهی",
+    "Burger Cafe",
+    "Online Order",
+    "Restaurant"
+  ],
+  authors: [{ name: "Burger Cafe Team" }],
+  creator: "Burger Cafe",
+  publisher: "Burger Cafe",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://burger-cafe.vercel.app'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'fa-IR': '/fa',
+      'en-US': '/en',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'fa_IR',
+    url: 'https://burger-cafe.vercel.app',
+    title: 'Burger Cafe - بهترین برگرهای شهر',
+    description: 'کافه برگر با 20 سال تجربه، ارائه بهترین برگرها و نوشیدنی‌های خوشمزه',
+    siteName: 'Burger Cafe',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Burger Cafe - بهترین برگرهای شهر',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Burger Cafe - بهترین برگرهای شهر',
+    description: 'کافه برگر با 20 سال تجربه، ارائه بهترین برگرها و نوشیدنی‌های خوشمزه',
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 };
 
 export default async function RootLayout({
