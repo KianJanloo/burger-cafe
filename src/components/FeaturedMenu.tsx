@@ -5,10 +5,13 @@ import { Star, Clock, Flame, Plus } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import useOrderStore from '@/store/orderStore';
+import Toast from './Toast';
+import { useToast } from '@/hooks/useToast';
 
 const FeaturedMenu = () => {
   const t = useTranslations('menu');
   const { addToCart } = useOrderStore();
+  const { toast, showToast, hideToast } = useToast();
   
   const featuredItems = [
     {
@@ -72,6 +75,7 @@ const FeaturedMenu = () => {
       isAvailable: true,
     };
     addToCart(menuItem, 1);
+    showToast(`${item.name} به سبد خرید اضافه شد!`, 'success');
   };
 
   return (
@@ -181,6 +185,14 @@ const FeaturedMenu = () => {
           </Link>
         </motion.div>
       </div>
+      
+      {/* Toast */}
+      <Toast
+        isVisible={toast.isVisible}
+        message={toast.message}
+        type={toast.type}
+        onClose={hideToast}
+      />
     </section>
   );
 };

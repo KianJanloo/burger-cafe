@@ -3,10 +3,13 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { ShoppingCart, History } from 'lucide-react';
+import Link from 'next/link';
 import Cart from '@/components/order/Cart';
 import Checkout from '@/components/order/Checkout';
 import OrderSuccess from '@/components/order/OrderSuccess';
 import OrderHistory from '@/components/order/OrderHistory';
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 import { Order } from '@/types/order';
 
 type OrderPageState = 'cart' | 'checkout' | 'success' | 'history';
@@ -66,8 +69,10 @@ export default function OrderPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Navigation />
+      <div className="py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -91,7 +96,7 @@ export default function OrderPage() {
                 }`}
               >
                 <ShoppingCart className="w-5 h-5" />
-                سبد خرید
+                {t('cart.title')}
               </button>
               <button
                 onClick={() => setCurrentState('history')}
@@ -102,7 +107,7 @@ export default function OrderPage() {
                 }`}
               >
                 <History className="w-5 h-5" />
-                تاریخچه سفارشات
+                {t('history.title')}
               </button>
             </div>
           </div>
@@ -115,15 +120,17 @@ export default function OrderPage() {
 
         {/* Quick Action Button */}
         <div className="fixed bottom-6 left-6 z-50">
-          <a
+          <Link
             href="/menu"
             className="bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-colors flex items-center gap-2"
           >
             <ShoppingCart className="w-6 h-6" />
-            <span className="hidden sm:block">مشاهده منو</span>
-          </a>
+            <span className="hidden sm:block">{t('viewMenu')}</span>
+          </Link>
+        </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

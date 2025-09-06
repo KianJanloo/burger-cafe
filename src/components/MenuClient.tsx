@@ -7,6 +7,8 @@ import { useTranslations, useLocale } from 'next-intl';
 import useOrderStore from '@/store/orderStore';
 import Navigation from "./Navigation";
 import Footer from "./Footer";
+import Toast from './Toast';
+import { useToast } from '@/hooks/useToast';
 
 interface MenuItemType {
   id: string;
@@ -27,6 +29,7 @@ const MenuClient = () => {
   const t = useTranslations('menu');
   const locale = useLocale();
   const { addToCart, getCartSummary } = useOrderStore();
+  const { toast, showToast, hideToast } = useToast();
 
   const categories = [
     { id: "all", name: t('categories.all'), icon: "🍔" },
@@ -199,6 +202,7 @@ const MenuClient = () => {
       isAvailable: true,
     };
     addToCart(menuItem, 1);
+    showToast(`${item.name} به سبد خرید اضافه شد!`, 'success');
   };
 
   const cartSummary = getCartSummary();
@@ -374,6 +378,14 @@ const MenuClient = () => {
       </section>
 
       <Footer />
+      
+      {/* Toast */}
+      <Toast
+        isVisible={toast.isVisible}
+        message={toast.message}
+        type={toast.type}
+        onClose={hideToast}
+      />
     </>
   );
 };

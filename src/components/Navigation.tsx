@@ -3,20 +3,21 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Menu, X, Phone, MapPin, Clock } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import { useTranslations, useLocale } from 'next-intl';
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
+import useOrderStore from '@/store/orderStore';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('nav');
   const locale = useLocale();
+  const { getCartSummary } = useOrderStore();
 
   const navItems = [
     { name: t('home'), href: `/${locale}` },
     { name: t('menu'), href: `/${locale}/menu` },
-    { name: t('order'), href: `/${locale}/order` },
     { name: t('about'), href: `/${locale}/about` },
     { name: t('gallery'), href: `/${locale}/gallery` },
     { name: t('reservation'), href: `/${locale}/reservation` },
@@ -67,12 +68,36 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
             <LanguageToggle />
             <ThemeToggle />
+            {/* Cart Icon */}
+            <Link
+              href={`/${locale}/order`}
+              className="relative p-2 text-gray-700 dark:text-gray-300 hover:text-red-600 transition-colors duration-300"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {getCartSummary().totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+                  {getCartSummary().totalItems}
+                </span>
+              )}
+            </Link>
           </div>
 
           {/* Mobile menu button & Toggles */}
           <div className="md:hidden flex items-center gap-4">
             <LanguageToggle />
             <ThemeToggle />
+            {/* Mobile Cart Icon */}
+            <Link
+              href={`/${locale}/order`}
+              className="relative p-2 text-gray-700 dark:text-gray-300 hover:text-red-600 transition-colors duration-300"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              {getCartSummary().totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
+                  {getCartSummary().totalItems}
+                </span>
+              )}
+            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 dark:text-gray-300 hover:text-red-600 transition-colors duration-300"

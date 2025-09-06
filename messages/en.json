@@ -264,6 +264,7 @@
   "order": {
     "title": "Order Food",
     "subtitle": "Place your order and enjoy the best burgers in town",
+    "viewMenu": "View Menu",
     "cart": {
       "title": "Shopping Cart",
       "empty": "Your cart is empty",
