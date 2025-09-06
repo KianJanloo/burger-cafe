@@ -1,0 +1,251 @@
+{
+  "nav": {
+    "home": "Home",
+    "menu": "Menu",
+    "about": "About",
+    "gallery": "Gallery",
+    "reservation": "Reservation",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Best Burgers in Town",
+    "subtitle": "With 20 years of experience in preparing the best burgers and delicious drinks, we create wonderful moments for you",
+    "rating": "4.9 Rating",
+    "experience": "20 Years Experience",
+    "customers": "1000+ Happy Customers",
+    "viewMenu": "View Menu",
+    "reserveTable": "Reserve Table"
+  },
+  "menu": {
+    "title": "Featured Menu",
+    "subtitle": "Our best and most popular burgers prepared with love and care",
+    "search": "Search menu...",
+    "categories": {
+      "all": "All",
+      "classic": "Classic",
+      "spicy": "Spicy",
+      "vegetarian": "Vegetarian",
+      "drinks": "Drinks",
+      "desserts": "Desserts"
+    },
+    "items": {
+      "classicBurger": {
+        "name": "Classic Burger",
+        "description": "Beef burger with cheddar cheese, lettuce, tomato and special sauce"
+      },
+      "doubleCheese": {
+        "name": "Double Cheese Burger",
+        "description": "Two layers of meat with cheddar cheese and special sauce"
+      },
+      "baconBurger": {
+        "name": "Bacon Burger",
+        "description": "Beef burger with crispy bacon, cheese and barbecue sauce"
+      },
+      "mexicanSpicy": {
+        "name": "Mexican Spicy Burger",
+        "description": "Beef burger with hot pepper, pepperoni cheese and special spicy sauce"
+      },
+      "redPepper": {
+        "name": "Red Pepper Burger",
+        "description": "Beef burger with hot red pepper and chili sauce"
+      },
+      "vegetarian": {
+        "name": "Vegetarian Burger",
+        "description": "Vegetarian burger with mushroom, avocado and fresh vegetables"
+      },
+      "mushroom": {
+        "name": "Mushroom Burger",
+        "description": "Portobello mushroom burger with goat cheese and vegetables"
+      },
+      "cola": {
+        "name": "Cola",
+        "description": "Cold and fresh cola drink"
+      },
+      "bananaMilk": {
+        "name": "Banana Milk",
+        "description": "Natural and delicious banana milk"
+      },
+      "cheesecake": {
+        "name": "Cheesecake",
+        "description": "Creamy cheesecake with strawberry"
+      },
+      "iceCream": {
+        "name": "Ice Cream",
+        "description": "Vanilla ice cream with chocolate sauce"
+      }
+    },
+    "badges": {
+      "popular": "Popular",
+      "spicy": "Spicy"
+    },
+    "prepTime": "minutes",
+    "order": "Order",
+    "viewAll": "View All Menu",
+    "noResults": "No items found",
+    "noResultsDesc": "Please change your search terms"
+  },
+  "about": {
+    "title": "About Burger Cafe",
+    "subtitle": "Our story began 20 years ago, when our love for delicious burgers led us to this path",
+    "story": {
+      "title": "Our Story",
+      "p1": "Burger Cafe started in 2004 with a simple dream: making the best burgers in town. Ahmad Mohammadi, our founder, with 20 years of cooking experience, decided to establish a restaurant where quality and taste are the priority.",
+      "p2": "From the very first days, we committed to using the best ingredients and preparing every burger with love and care. This commitment made us popular among people quickly.",
+      "p3": "Today, after 20 years, we still adhere to our original principles and try to provide a better experience for our dear customers every day."
+    },
+    "stats": {
+      "customers": "Happy Customers",
+      "experience": "Years Experience",
+      "burgers": "Burger Types",
+      "rating": "Average Rating"
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "Principles and values that we follow in everything we do",
+      "passion": {
+        "title": "Passion for Work",
+        "description": "Every burger is prepared with love and care to create the best experience for you"
+      },
+      "quality": {
+        "title": "High Quality",
+        "description": "Using the best and freshest ingredients to prepare delicious food"
+      },
+      "service": {
+        "title": "Great Service",
+        "description": "Our team is ready to serve you with kindness and professionalism"
+      },
+      "experience": {
+        "title": "20 Years Experience",
+        "description": "Two decades of experience in preparing the best burgers and delicious drinks"
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Our skilled and professional chefs who prepare the best food for you every day"
+    },
+    "cta": {
+      "title": "Ready to experience the amazing taste?",
+      "subtitle": "Come to Burger Cafe now and enjoy the best burgers in town",
+      "viewMenu": "View Menu",
+      "reserveTable": "Reserve Table"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to answer your questions and provide the best services",
+    "info": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "hours": "Working Hours"
+    },
+    "form": {
+      "title": "Send us your message",
+      "name": "Full Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "subjects": {
+        "order": "Food Order",
+        "reservation": "Table Reservation",
+        "complaint": "Complaint and Suggestion",
+        "cooperation": "Cooperation",
+        "other": "Other"
+      },
+      "submit": "Send Message",
+      "success": "Your message has been sent!",
+      "successDesc": "We will contact you soon"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "reservation": {
+        "q": "Is table reservation available?",
+        "a": "Yes, you can reserve your table through phone or contact form."
+      },
+      "delivery": {
+        "q": "Is home delivery available?",
+        "a": "Yes, we provide home delivery services in a specific area."
+      },
+      "vegetarian": {
+        "q": "Do you have vegetarian menu?",
+        "a": "Yes, we have various vegetarian burgers and food suitable for vegetarians."
+      },
+      "hours": {
+        "q": "What are your working hours?",
+        "a": "We are open from Saturday to Thursday from 9 AM to 11 PM and on Fridays from 2 PM to 11 PM."
+      }
+    }
+  },
+  "gallery": {
+    "title": "Image Gallery",
+    "subtitle": "Take a look at the beautiful space and delicious food of Burger Cafe",
+    "categories": {
+      "all": "All",
+      "food": "Food",
+      "drinks": "Drinks",
+      "desserts": "Desserts",
+      "interior": "Interior",
+      "events": "Events"
+    },
+    "noResults": "No images found",
+    "noResultsDesc": "Please select another category"
+  },
+  "reservation": {
+    "title": "Reserve Table",
+    "subtitle": "Reserve your table and have an amazing experience at Burger Cafe",
+    "form": {
+      "title": "Reservation Form",
+      "name": "Full Name",
+      "phone": "Phone Number",
+      "email": "Email",
+      "date": "Date",
+      "time": "Time",
+      "guests": "Number of Guests",
+      "specialRequests": "Special Requests",
+      "submit": "Reserve Table",
+      "success": "Your reservation has been confirmed!",
+      "successDesc": "We will contact you soon"
+    },
+    "info": {
+      "title": "Contact Information",
+      "hours": "Working Hours",
+      "offers": {
+        "title": "Special Offers",
+        "group": "20% discount for groups over 6 people",
+        "birthday": "Free cake on birthday",
+        "drink": "Free drink with every burger"
+      },
+      "location": "Location"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "required": "Required",
+    "optional": "Optional",
+    "select": "Select",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "back": "Back",
+    "continue": "Continue",
+    "finish": "Finish",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "hide": "Hide",
+    "show": "Show",
+    "more": "More",
+    "less": "Less"
+  }
+}
