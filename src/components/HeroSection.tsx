@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowLeft, Star, Clock, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, Star, Clock, Users } from "lucide-react";
 import Link from "next/link";
 import { useTranslations, useLocale } from 'next-intl';
 
@@ -24,7 +24,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center lg:text-right"
+          className={`text-center ${locale === 'fa' ? 'lg:text-right' : 'lg:text-left'}`}
         >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap justify-center lg:justify-start gap-8 mb-10"
+            className={`flex flex-wrap justify-center ${locale === 'fa' ? 'lg:justify-start' : 'lg:justify-start'} gap-8 mb-10`}
           >
             <div className="flex items-center gap-2">
               <div className="flex text-yellow-400">
@@ -74,14 +74,18 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
+            className={`flex flex-col sm:flex-row gap-6 justify-center ${locale === 'fa' ? 'lg:justify-start' : 'lg:justify-start'}`}
           >
             <Link
               href={`/${locale}/menu`}
               className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-red-600 to-orange-500 text-white font-semibold rounded-full hover:from-red-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               {t('viewMenu')}
-              <ArrowLeft className="mr-2 rtl:ml-2 w-5 h-5" />
+              {locale === 'fa' ? (
+                <ArrowLeft className="mr-2 w-5 h-5" />
+              ) : (
+                <ArrowRight className="ml-2 w-5 h-5" />
+              )}
             </Link>
             <Link
               href={`/${locale}/reservation`}

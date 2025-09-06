@@ -3,50 +3,52 @@
 import { motion } from "framer-motion";
 import { Star, Clock, Flame } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 
 const FeaturedMenu = () => {
+  const t = useTranslations('menu');
   const featuredItems = [
     {
       id: 1,
-      name: "برگر کلاسیک",
-      description: "برگر گوشت گاو با پنیر چدار، کاهو، گوجه و سس مخصوص",
+      name: t('items.classicBurger.name'),
+      description: t('items.classicBurger.description'),
       price: "45000",
       image: "/api/placeholder/300/200",
       rating: 4.9,
-      prepTime: "15 دقیقه",
+      prepTime: `15 ${t('prepTime')}`,
       isSpicy: false,
       isPopular: true,
     },
     {
       id: 2,
-      name: "برگر تند مکزیکی",
-      description: "برگر گوشت با فلفل تند، پنیر پپرونی و سس تند مخصوص",
+      name: t('items.mexicanSpicy.name'),
+      description: t('items.mexicanSpicy.description'),
       price: "52000",
       image: "/api/placeholder/300/200",
       rating: 4.8,
-      prepTime: "18 دقیقه",
+      prepTime: `18 ${t('prepTime')}`,
       isSpicy: true,
       isPopular: false,
     },
     {
       id: 3,
-      name: "برگر گیاهی",
-      description: "برگر گیاهی با قارچ، آووکادو و سبزیجات تازه",
+      name: t('items.vegetarian.name'),
+      description: t('items.vegetarian.description'),
       price: "38000",
       image: "/api/placeholder/300/200",
       rating: 4.7,
-      prepTime: "12 دقیقه",
+      prepTime: `12 ${t('prepTime')}`,
       isSpicy: false,
       isPopular: false,
     },
     {
       id: 4,
-      name: "برگر دوبل چیز",
-      description: "دو لایه گوشت با پنیر چدار و سس مخصوص",
+      name: t('items.doubleCheese.name'),
+      description: t('items.doubleCheese.description'),
       price: "58000",
       image: "/api/placeholder/300/200",
       rating: 4.9,
-      prepTime: "20 دقیقه",
+      prepTime: `20 ${t('prepTime')}`,
       isSpicy: false,
       isPopular: true,
     },
@@ -64,10 +66,10 @@ const FeaturedMenu = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-gray-900 dark:text-white mb-6">
-            منوی ویژه
+            {t('title')}
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            بهترین و محبوب‌ترین برگرهای ما که با عشق و دقت تهیه می‌شوند
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -92,13 +94,13 @@ const FeaturedMenu = () => {
                 <div className="absolute top-4 right-4 flex flex-col gap-2">
                   {item.isPopular && (
                     <div className="bg-red-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
-                      محبوب
+                      {t('badges.popular')}
                     </div>
                   )}
                   {item.isSpicy && (
                     <div className="bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
                       <Flame className="w-3 h-3" />
-                      تند
+                      {t('badges.spicy')}
                     </div>
                   )}
                 </div>
@@ -131,7 +133,7 @@ const FeaturedMenu = () => {
                     {item.price.toLocaleString()} تومان
                   </div>
                   <button className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-red-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105">
-                    سفارش
+                    {t('order')}
                   </button>
                 </div>
               </div>
@@ -148,7 +150,7 @@ const FeaturedMenu = () => {
           className="text-center mt-16"
         >
           <button className="inline-flex items-center px-8 py-4 border-2 border-red-600 text-red-600 font-semibold rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 transform hover:scale-105">
-            مشاهده کل منو
+            {t('viewAll')}
           </button>
         </motion.div>
       </div>

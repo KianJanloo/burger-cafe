@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Phone, MapPin, Clock, Mail, Facebook, Instagram, Twitter } from "lucide-react";
+import { useTranslations, useLocale } from 'next-intl';
 
 const Footer = () => {
+  const t = useTranslations('footer');
+  const locale = useLocale();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -23,11 +26,10 @@ const Footer = () => {
               <div className="w-10 h-10 bg-gradient-to-r from-red-600 to-orange-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xl">🍔</span>
               </div>
-              <span className="font-playfair text-2xl font-bold">برگر کافه</span>
+              <span className="font-playfair text-2xl font-bold">{t('brandName')}</span>
             </div>
             <p className="text-gray-300 dark:text-gray-400 mb-6 leading-relaxed">
-              با 20 سال تجربه در تهیه بهترین برگرها و نوشیدنی‌های خوشمزه، 
-              لحظات خوشی را برای شما رقم می‌زنیم.
+              {t('description')}
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-gray-800 dark:bg-gray-700 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-300">
@@ -49,30 +51,30 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-bold mb-6">لینک‌های سریع</h3>
+            <h3 className="text-xl font-bold mb-6">{t('quickLinks')}</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/" className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
+                <Link href={`/${locale}`} className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
                   خانه
                 </Link>
               </li>
               <li>
-                <Link href="/menu" className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
+                <Link href={`/${locale}/menu`} className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
                   منو
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
+                <Link href={`/${locale}/about`} className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
                   درباره ما
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
+                <Link href={`/${locale}/gallery`} className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
                   گالری
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
+                <Link href={`/${locale}/contact`} className="text-gray-300 dark:text-gray-400 hover:text-red-400 transition-colors duration-300">
                   تماس
                 </Link>
               </li>
@@ -86,31 +88,31 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-bold mb-6">دسته‌بندی منو</h3>
+            <h3 className="text-xl font-bold mb-6">{t('menuCategories')}</h3>
             <ul className="space-y-3">
               <li>
                 <a href="#" className="text-gray-300 hover:text-red-400 transition-colors duration-300">
-                  برگرهای کلاسیک
+                  {t('classicBurgers')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-red-400 transition-colors duration-300">
-                  برگرهای تند
+                  {t('spicyBurgers')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-red-400 transition-colors duration-300">
-                  برگرهای گیاهی
+                  {t('vegetarianBurgers')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-red-400 transition-colors duration-300">
-                  نوشیدنی‌ها
+                  {t('drinks')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-red-400 transition-colors duration-300">
-                  دسرها
+                  {t('desserts')}
                 </a>
               </li>
             </ul>
@@ -123,7 +125,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-xl font-bold mb-6">اطلاعات تماس</h3>
+            <h3 className="text-xl font-bold mb-6">{t('contactInfo')}</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-red-400" />
@@ -157,17 +159,17 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} برگر کافه. تمامی حقوق محفوظ است.
+              © {currentYear} {t('brandName')}. {t('rightsReserved')}
             </p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-red-400 text-sm transition-colors duration-300">
-                حریم خصوصی
+                {t('privacy')}
               </a>
               <a href="#" className="text-gray-400 hover:text-red-400 text-sm transition-colors duration-300">
-                شرایط استفاده
+                {t('terms')}
               </a>
               <a href="#" className="text-gray-400 hover:text-red-400 text-sm transition-colors duration-300">
-                کوکی‌ها
+                {t('cookies')}
               </a>
             </div>
           </div>

@@ -2,8 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 const Testimonials = () => {
+  const t = useTranslations('testimonials');
   const testimonials = [
     {
       id: 1,
@@ -67,10 +69,10 @@ const Testimonials = () => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-playfair font-bold text-gray-900 dark:text-white mb-6">
-            نظرات مشتریان
+            {t('title')}
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            آنچه مشتریان عزیزمان درباره تجربه‌شان در کافه برگر می‌گویند
+            {t('subtitle')}
           </p>
         </motion.div>
 
@@ -127,19 +129,19 @@ const Testimonials = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold mb-2">1000+</div>
-              <div className="text-red-100">مشتری راضی</div>
+              <div className="text-red-100">{t('stats.happyCustomers')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">4.9</div>
-              <div className="text-red-100">امتیاز میانگین</div>
+              <div className="text-red-100">{t('stats.averageRating')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">20</div>
-              <div className="text-red-100">سال تجربه</div>
+              <div className="text-red-100">{t('stats.yearsExperience')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">50+</div>
-              <div className="text-red-100">نوع برگر</div>
+              <div className="text-red-100">{t('stats.burgerTypes')}</div>
             </div>
           </div>
         </motion.div>

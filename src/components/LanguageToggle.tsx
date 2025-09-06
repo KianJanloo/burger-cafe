@@ -8,6 +8,7 @@ import { Globe, ChevronDown } from "lucide-react";
 const LanguageToggle = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentLocale, setCurrentLocale] = useState('fa');
+  const [isInitialized, setIsInitialized] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
@@ -17,23 +18,43 @@ const LanguageToggle = () => {
     { code: 'en', name: 'English', flag: '🇺🇸' }
   ];
 
-  // Extract locale from pathname
+  // Initialize locale on mount
   useEffect(() => {
+    if (!isInitialized) {
+      const savedLanguage = localStorage.getItem('language');
+      if (savedLanguage === 'fa' || savedLanguage === 'en') {
+        setCurrentLocale(savedLanguage);
+      }
+      setIsInitialized(true);
+    }
+  }, [isInitialized]);
+
+  // Sync with pathname only on initial load
+  useEffect(() => {
+    if (!isInitialized) return;
+    
     const pathSegments = pathname.split('/').filter(Boolean);
     const localeFromPath = pathSegments[0];
     
-    if (localeFromPath === 'fa' || localeFromPath === 'en') {
+    // Only update if we don't have a saved preference and pathname has a valid locale
+    const savedLanguage = localStorage.getItem('language');
+    if (!savedLanguage && (localeFromPath === 'fa' || localeFromPath === 'en')) {
       setCurrentLocale(localeFromPath);
-    } else {
-      setCurrentLocale('fa'); // default
     }
-  }, [pathname]);
+  }, [isInitialized, pathname]); // Include pathname but only run when initialized
 
   const currentLanguage = languages.find(lang => lang.code === currentLocale) || languages[0];
 
   const changeLanguage = (newLocale: string) => {
+    // Don't change if it's the same language
+    if (newLocale === currentLocale) {
+      setIsOpen(false);
+      return;
+    }
+    
     // Save to localStorage
     localStorage.setItem('language', newLocale);
+    setCurrentLocale(newLocale);
     
     // Handle different path patterns
     let newPath;

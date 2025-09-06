@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from 'next-intl';
 
 const Loading = () => {
+  const t = useTranslations('loading');
   return (
     <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
       <div className="text-center">
@@ -29,7 +31,7 @@ const Loading = () => {
           transition={{ delay: 0.5 }}
           className="text-2xl font-playfair font-bold text-gray-900 mb-2"
         >
-          کافه برگر
+          {t('brandName')}
         </motion.h2>
         
         <motion.p
@@ -38,7 +40,7 @@ const Loading = () => {
           transition={{ delay: 0.7 }}
           className="text-gray-600"
         >
-          در حال بارگذاری...
+          {t('loadingText')}
         </motion.p>
         
         <motion.div

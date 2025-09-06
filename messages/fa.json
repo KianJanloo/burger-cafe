@@ -190,7 +190,17 @@
       "events": "رویدادها"
     },
     "noResults": "تصویری یافت نشد",
-    "noResultsDesc": "لطفاً دسته‌بندی دیگری را انتخاب کنید"
+    "noResultsDesc": "لطفاً دسته‌بندی دیگری را انتخاب کنید",
+    "images": {
+      "interior": "فضای داخلی کافه",
+      "interiorDesc": "محیط زیبا و دنج کافه برگر",
+      "events": "رویداد ویژه",
+      "eventsDesc": "جشن تولد و رویدادهای خاص در کافه",
+      "nightCafe": "کافه در شب",
+      "nightCafeDesc": "فضای زیبای کافه در شب",
+      "coldDrinks": "نوشیدنی‌های سرد",
+      "coldDrinksDesc": "انواع نوشیدنی‌های سرد و تازه"
+    }
   },
   "reservation": {
     "title": "رزرو میز",
@@ -219,6 +229,36 @@
       },
       "location": "موقعیت"
     }
+  },
+  "footer": {
+    "brandName": "برگر کافه",
+    "description": "با 20 سال تجربه در تهیه بهترین برگرها و نوشیدنی‌های خوشمزه، لحظات خوشی را برای شما رقم می‌زنیم.",
+    "quickLinks": "لینک‌های سریع",
+    "menuCategories": "دسته‌بندی منو",
+    "contactInfo": "اطلاعات تماس",
+    "classicBurgers": "برگرهای کلاسیک",
+    "spicyBurgers": "برگرهای تند",
+    "vegetarianBurgers": "برگرهای گیاهی",
+    "drinks": "نوشیدنی‌ها",
+    "desserts": "دسرها",
+    "privacy": "حریم خصوصی",
+    "terms": "شرایط استفاده",
+    "cookies": "کوکی‌ها",
+    "rightsReserved": "تمامی حقوق محفوظ است."
+  },
+  "testimonials": {
+    "title": "نظرات مشتریان",
+    "subtitle": "آنچه مشتریان عزیزمان درباره تجربه‌شان در کافه برگر می‌گویند",
+    "stats": {
+      "happyCustomers": "مشتری راضی",
+      "averageRating": "امتیاز میانگین",
+      "yearsExperience": "سال تجربه",
+      "burgerTypes": "نوع برگر"
+    }
+  },
+  "loading": {
+    "brandName": "کافه برگر",
+    "loadingText": "در حال بارگذاری..."
   },
   "common": {
     "loading": "در حال بارگذاری...",

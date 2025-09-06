@@ -38,7 +38,7 @@ const Navigation = () => {
                 <span className="text-white font-bold text-xl">🍔</span>
               </div>
               <span className="font-playfair text-2xl font-bold text-gray-900 dark:text-white">
-                برگر کافه
+                {locale === 'fa' ? 'برگر کافه' : 'Burger Cafe'}
               </span>
             </Link>
           </motion.div>
@@ -99,16 +99,6 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="px-3 py-2 flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>021-12345678</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span>9:00 - 23:00</span>
-              </div>
-            </div>
           </div>
         </motion.div>
       </div>

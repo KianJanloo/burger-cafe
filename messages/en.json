@@ -190,7 +190,17 @@
       "events": "Events"
     },
     "noResults": "No images found",
-    "noResultsDesc": "Please select another category"
+    "noResultsDesc": "Please select another category",
+    "images": {
+      "interior": "Cafe Interior",
+      "interiorDesc": "Beautiful and cozy atmosphere of Burger Cafe",
+      "events": "Special Events",
+      "eventsDesc": "Birthday parties and special events at the cafe",
+      "nightCafe": "Cafe at Night",
+      "nightCafeDesc": "Beautiful cafe space at night",
+      "coldDrinks": "Cold Drinks",
+      "coldDrinksDesc": "Various cold and fresh drinks"
+    }
   },
   "reservation": {
     "title": "Reserve Table",
@@ -219,6 +229,36 @@
       },
       "location": "Location"
     }
+  },
+  "footer": {
+    "brandName": "Burger Cafe",
+    "description": "With 20 years of experience in preparing the best burgers and delicious drinks, we create wonderful moments for you.",
+    "quickLinks": "Quick Links",
+    "menuCategories": "Menu Categories",
+    "contactInfo": "Contact Information",
+    "classicBurgers": "Classic Burgers",
+    "spicyBurgers": "Spicy Burgers",
+    "vegetarianBurgers": "Vegetarian Burgers",
+    "drinks": "Drinks",
+    "desserts": "Desserts",
+    "privacy": "Privacy",
+    "terms": "Terms of Service",
+    "cookies": "Cookies",
+    "rightsReserved": "All rights reserved."
+  },
+  "testimonials": {
+    "title": "Customer Reviews",
+    "subtitle": "What our dear customers say about their experience at Burger Cafe",
+    "stats": {
+      "happyCustomers": "Happy Customers",
+      "averageRating": "Average Rating",
+      "yearsExperience": "Years Experience",
+      "burgerTypes": "Burger Types"
+    }
+  },
+  "loading": {
+    "brandName": "Burger Cafe",
+    "loadingText": "Loading..."
   },
   "common": {
     "loading": "Loading...",

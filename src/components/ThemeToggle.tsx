@@ -7,6 +7,15 @@ import { useTheme } from "./ThemeProvider";
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
 
+  // Don't render until theme is loaded
+  if (theme === null) {
+    return (
+      <div className="relative w-12 h-6 bg-gray-300 rounded-full">
+        <div className="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow-md" />
+      </div>
+    );
+  }
+
   return (
     <motion.button
       onClick={toggleTheme}
