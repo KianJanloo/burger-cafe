@@ -1,10 +1,10 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { ShoppingCart, Plus, Minus, Trash2, Edit3 } from 'lucide-react';
 import { CartItem } from '@/types/order';
 import { useState } from 'react';
 import useOrderStore from '@/store/orderStore';
+import { FaEdit, FaMinus, FaPlus, FaShoppingCart, FaTrash } from 'react-icons/fa';
 
 interface CartProps {
   onCheckout: () => void;
@@ -36,7 +36,7 @@ export default function Cart({ onCheckout }: CartProps) {
   if (cart.length === 0) {
     return (
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
-        <ShoppingCart className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
+        <FaShoppingCart className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
           {t('empty')}
         </h3>
@@ -51,7 +51,7 @@ export default function Cart({ onCheckout }: CartProps) {
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
       <div className="px-6 py-4 border-b border-gray-200 dark:border-gray-700">
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-          <ShoppingCart className="w-5 h-5" />
+          <FaShoppingCart className="w-5 h-5" />
           {t('title')}
         </h3>
       </div>
@@ -83,13 +83,13 @@ export default function Cart({ onCheckout }: CartProps) {
                   onClick={() => handleEditInstructions(item)}
                   className="p-1 text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
-                  <Edit3 className="w-4 h-4" />
+                  <FaEdit className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => removeFromCart(item.id)}
                   className="p-1 text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
                 >
-                  <Trash2 className="w-4 h-4" />
+                  <FaTrash className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function Cart({ onCheckout }: CartProps) {
                   onClick={() => updateCartItemQuantity(item.id, item.quantity - 1)}
                   className="p-1 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                 >
-                  <Minus className="w-4 h-4" />
+                  <FaMinus className="w-4 h-4" />
                 </button>
                 <span className="w-8 text-center font-medium text-gray-900 dark:text-white">
                   {item.quantity}
@@ -109,7 +109,7 @@ export default function Cart({ onCheckout }: CartProps) {
                   onClick={() => updateCartItemQuantity(item.id, item.quantity + 1)}
                   className="p-1 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                 >
-                  <Plus className="w-4 h-4" />
+                  <FaPlus className="w-4 h-4" />
                 </button>
               </div>
             </div>

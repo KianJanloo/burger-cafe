@@ -4,17 +4,8 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import useOrderStore from '@/store/orderStore';
 import { Order, OrderFilters } from '@/types/order';
-import { 
-  Search, 
-  Filter, 
-  Eye, 
-  X, 
-  RotateCcw, 
-  Calendar,
-  Clock,
-  MapPin,
-  ShoppingBag
-} from 'lucide-react';
+import { FaCalendar, FaClock, FaEye, FaFilter, FaMapPin, FaSearch, FaShoppingBag } from 'react-icons/fa';
+import { MdClose, MdRotateLeft } from 'react-icons/md';
 
 interface OrderHistoryProps {
   onViewOrder: (order: Order) => void;
@@ -107,7 +98,7 @@ export default function OrderHistory({ onViewOrder }: OrderHistoryProps) {
   if (orders.length === 0) {
     return (
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
-        <ShoppingBag className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
+        <FaShoppingBag className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
           {t('empty')}
         </h3>
@@ -124,7 +115,7 @@ export default function OrderHistory({ onViewOrder }: OrderHistoryProps) {
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
         <div className="flex flex-col sm:flex-row gap-4 mb-4">
           <div className="flex-1 relative">
-            <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="جستجو در سفارشات..."
@@ -137,7 +128,7 @@ export default function OrderHistory({ onViewOrder }: OrderHistoryProps) {
             onClick={() => setShowFilters(!showFilters)}
             className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors flex items-center gap-2"
           >
-            <Filter className="w-4 h-4" />
+            <FaFilter className="w-4 h-4" />
             فیلترها
           </button>
         </div>
@@ -214,15 +205,15 @@ export default function OrderHistory({ onViewOrder }: OrderHistoryProps) {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600 dark:text-gray-400">
                   <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
+                    <FaCalendar className="w-4 h-4" />
                     <span>{formatDate(order.createdAt)}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4" />
+                    <FaMapPin className="w-4 h-4" />
                     <span>{getOrderTypeText(order.orderType)}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
+                    <FaClock className="w-4 h-4" />
                     <span>{order.items.length} آیتم</span>
                   </div>
                 </div>
@@ -239,7 +230,7 @@ export default function OrderHistory({ onViewOrder }: OrderHistoryProps) {
                   onClick={() => onViewOrder(order)}
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
                 >
-                  <Eye className="w-4 h-4" />
+                  <FaEye className="w-4 h-4" />
                   {t('viewDetails')}
                 </button>
                 
@@ -248,7 +239,7 @@ export default function OrderHistory({ onViewOrder }: OrderHistoryProps) {
                     onClick={() => handleCancelOrder(order.id)}
                     className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2"
                   >
-                    <X className="w-4 h-4" />
+                    <MdClose className="w-4 h-4" />
                     {t('cancel')}
                   </button>
                 )}
@@ -258,7 +249,7 @@ export default function OrderHistory({ onViewOrder }: OrderHistoryProps) {
                     onClick={() => handleReorder(order)}
                     className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2"
                   >
-                    <RotateCcw className="w-4 h-4" />
+                    <MdRotateLeft className="w-4 h-4" />
                     {t('reorder')}
                   </button>
                 )}
@@ -270,7 +261,7 @@ export default function OrderHistory({ onViewOrder }: OrderHistoryProps) {
 
       {filteredOrders.length === 0 && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 text-center">
-          <Search className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
+          <FaSearch className="w-16 h-16 text-gray-400 dark:text-gray-600 mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
             هیچ سفارشی یافت نشد
           </h3>

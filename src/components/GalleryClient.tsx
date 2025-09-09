@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Search } from "lucide-react";
+import { MdClose as X, MdSearch as Search } from "react-icons/md";
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 

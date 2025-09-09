@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { ShoppingCart, History } from 'lucide-react';
 import Link from 'next/link';
 import Cart from '@/components/order/Cart';
 import Checkout from '@/components/order/Checkout';
@@ -11,6 +10,7 @@ import OrderHistory from '@/components/order/OrderHistory';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Order } from '@/types/order';
+import { FaHistory, FaShoppingCart } from 'react-icons/fa';
 
 type OrderPageState = 'cart' | 'checkout' | 'success' | 'history';
 
@@ -95,7 +95,7 @@ export default function OrderPage() {
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
-                <ShoppingCart className="w-5 h-5" />
+                <FaShoppingCart className="w-5 h-5" />
                 {t('cart.title')}
               </button>
               <button
@@ -106,7 +106,7 @@ export default function OrderPage() {
                     : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
-                <History className="w-5 h-5" />
+                <FaHistory className="w-5 h-5" />
                 {t('history.title')}
               </button>
             </div>
@@ -124,7 +124,7 @@ export default function OrderPage() {
             href="/menu"
             className="bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-colors flex items-center gap-2"
           >
-            <ShoppingCart className="w-6 h-6" />
+            <FaShoppingCart className="w-6 h-6" />
             <span className="hidden sm:block">{t('viewMenu')}</span>
           </Link>
         </div>

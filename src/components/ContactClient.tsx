@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, MapPin, Clock, Mail, Send, CheckCircle } from "lucide-react";
+import { MdPhone as Phone, MdLocationOn as MapPin, MdAccessTime as Clock, MdEmail as Mail, MdSend as Send, MdCheckCircle as CheckCircle } from "react-icons/md";
 import { useTranslations } from 'next-intl';
 
 const ContactClient = () => {

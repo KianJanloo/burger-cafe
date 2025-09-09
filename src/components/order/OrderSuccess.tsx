@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { CheckCircle, Clock, ShoppingBag, ArrowRight } from 'lucide-react';
 import { Order } from '@/types/order';
+import { FaArrowRight, FaCheckCircle, FaClock, FaShoppingBag } from 'react-icons/fa';
 
 interface OrderSuccessProps {
   order: Order;
@@ -37,7 +37,7 @@ export default function OrderSuccess({ order, onViewOrder, onContinueShopping }:
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
         {/* Success Icon */}
         <div className="w-20 h-20 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400" />
+          <FaCheckCircle className="w-12 h-12 text-green-600 dark:text-green-400" />
         </div>
 
         {/* Success Message */}
@@ -64,7 +64,7 @@ export default function OrderSuccess({ order, onViewOrder, onContinueShopping }:
                 {t('estimatedTime')}
               </p>
               <p className="font-semibold text-gray-900 dark:text-white flex items-center justify-center gap-1">
-                <Clock className="w-4 h-4" />
+                <FaClock className="w-4 h-4" />
                 {getEstimatedTime()} {t('minutes')}
               </p>
             </div>
@@ -138,7 +138,7 @@ export default function OrderSuccess({ order, onViewOrder, onContinueShopping }:
             onClick={onViewOrder}
             className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
           >
-            <ShoppingBag className="w-5 h-5" />
+            <FaShoppingBag className="w-5 h-5" />
             {t('viewOrder')}
           </button>
           <button
@@ -146,7 +146,7 @@ export default function OrderSuccess({ order, onViewOrder, onContinueShopping }:
             className="flex-1 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-white py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors flex items-center justify-center gap-2"
           >
             {t('continueShopping')}
-            <ArrowRight className="w-5 h-5" />
+            <FaArrowRight className="w-5 h-5" />
           </button>
         </div>
       </div>

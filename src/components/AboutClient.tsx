@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Users, Clock, Heart, Star, ChefHat, Utensils } from "lucide-react";
+import { MdEmojiEvents as Award, MdPeople as Users, MdAccessTime as Clock, MdFavorite as Heart, MdStar as Star, MdRestaurant as ChefHat, MdRestaurantMenu as Utensils } from "react-icons/md";
 import { useTranslations } from 'next-intl';
 
 const AboutClient = () => {

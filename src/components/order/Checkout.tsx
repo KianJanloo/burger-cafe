@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import useOrderStore from '@/store/orderStore';
 import { Order } from '@/types/order';
-import { ArrowLeft, CreditCard, MapPin, Clock } from 'lucide-react';
+import { FaArrowLeft, FaClock, FaCreditCard, FaMapPin } from 'react-icons/fa';
 
 interface CheckoutProps {
   onBack: () => void;
@@ -102,7 +102,7 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
           onClick={onBack}
           className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <FaArrowLeft className="w-4 h-4" />
           بازگشت به سبد خرید
         </button>
       </div>
@@ -122,9 +122,9 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
               </label>
               <div className="grid grid-cols-3 gap-3">
                 {[
-                  { value: 'dine-in', label: t('dineIn'), icon: Clock },
-                  { value: 'takeaway', label: t('takeaway'), icon: MapPin },
-                  { value: 'delivery', label: t('delivery'), icon: MapPin },
+                  { value: 'dine-in', label: t('dineIn'), icon: FaClock },
+                  { value: 'takeaway', label: t('takeaway'), icon: FaMapPin },
+                  { value: 'delivery', label: t('delivery'), icon: FaMapPin },
                 ].map(({ value, label, icon: Icon }) => (
                   <button
                     key={value}
@@ -241,7 +241,7 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
                 </>
               ) : (
                 <>
-                  <CreditCard className="w-5 h-5" />
+                  <FaCreditCard className="w-5 h-5" />
                   {t('placeOrder')}
                 </>
               )}

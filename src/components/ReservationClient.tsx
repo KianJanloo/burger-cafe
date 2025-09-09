@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Clock, Phone, CheckCircle, MapPin } from "lucide-react";
+import { MdAccessTime as Clock, MdPhone as Phone, MdCheckCircle as CheckCircle, MdLocationOn as MapPin } from "react-icons/md";
 import { useTranslations } from 'next-intl';
 
 const ReservationClient = () => {

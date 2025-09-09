@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Search, Star, Clock, Flame, Plus, ShoppingCart } from "lucide-react";
+import { MdSearch as Search, MdStar as Star, MdAccessTime as Clock, MdLocalFireDepartment as Flame, MdAdd as Plus, MdShoppingCart as ShoppingCart } from "react-icons/md";
 import { useTranslations, useLocale } from 'next-intl';
 import useOrderStore from '@/store/orderStore';
 import Navigation from "./Navigation";
