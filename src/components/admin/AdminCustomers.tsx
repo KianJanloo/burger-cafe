@@ -2,21 +2,17 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { 
-  MdSearch as Search,
-  MdFilterList as Filter,
-  MdMoreVert as MoreVertical,
-  MdVisibility as Eye,
-  MdEmail as Mail,
-  MdPhone as Phone,
-  MdLocationOn as MapPin,
-  MdCalendarToday as Calendar,
-  MdShoppingCart as ShoppingCart,
-  MdStar as Star,
-  MdPerson as User
-} from "react-icons/md";
 import useOrderStore from "@/store/orderStore";
 import { Order } from "@/types/order";
+import {
+  Eye,
+  Mail,
+  MapPin,
+  MoreVertical,
+  Phone,
+  Search,
+  User,
+} from "lucide-react";
 
 interface Customer {
   id: string;
@@ -42,15 +38,15 @@ const AdminCustomers = () => {
     // Extract unique customers from orders
     const customerMap = new Map<string, Customer>();
 
-    orders.forEach(order => {
+    orders.forEach((order) => {
       const customerId = order.customerInfo.phone; // Using phone as unique identifier
-      
+
       if (customerMap.has(customerId)) {
         const existingCustomer = customerMap.get(customerId)!;
         existingCustomer.totalOrders += 1;
         existingCustomer.totalSpent += order.totalAmount;
         existingCustomer.orderHistory.push(order);
-        
+
         // Update last order date
         if (order.createdAt > existingCustomer.lastOrderDate) {
           existingCustomer.lastOrderDate = order.createdAt;
@@ -66,17 +62,17 @@ const AdminCustomers = () => {
           totalSpent: order.totalAmount,
           lastOrderDate: order.createdAt,
           averageOrderValue: order.totalAmount,
-          favoriteCategory: order.items[0]?.menuItem.category || 'classic',
-          orderHistory: [order]
+          favoriteCategory: order.items[0]?.menuItem.category || "classic",
+          orderHistory: [order],
         };
         customerMap.set(customerId, newCustomer);
       }
     });
 
     // Calculate average order value for each customer
-    const customersList = Array.from(customerMap.values()).map(customer => ({
+    const customersList = Array.from(customerMap.values()).map((customer) => ({
       ...customer,
-      averageOrderValue: customer.totalSpent / customer.totalOrders
+      averageOrderValue: customer.totalSpent / customer.totalOrders,
     }));
 
     setCustomers(customersList);
@@ -86,10 +82,11 @@ const AdminCustomers = () => {
     let filtered = customers;
 
     if (searchTerm) {
-      filtered = filtered.filter(customer => 
-        customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        customer.phone.includes(searchTerm)
+      filtered = filtered.filter(
+        (customer) =>
+          customer.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          customer.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          customer.phone.includes(searchTerm)
       );
     }
 
@@ -97,39 +94,57 @@ const AdminCustomers = () => {
   }, [customers, searchTerm]);
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('fa-IR').format(price) + ' تومان';
+    return new Intl.NumberFormat("fa-IR").format(price) + " تومان";
   };
 
   const formatDate = (date: Date) => {
-    return new Intl.DateTimeFormat('fa-IR', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+    return new Intl.DateTimeFormat("fa-IR", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     }).format(date);
   };
 
   const getCategoryLabel = (category: string) => {
     switch (category) {
-      case 'classic':
-        return 'کلاسیک';
-      case 'spicy':
-        return 'تند';
-      case 'vegetarian':
-        return 'گیاهی';
-      case 'drinks':
-        return 'نوشیدنی';
-      case 'desserts':
-        return 'دسر';
+      case "classic":
+        return "کلاسیک";
+      case "spicy":
+        return "تند";
+      case "vegetarian":
+        return "گیاهی";
+      case "drinks":
+        return "نوشیدنی";
+      case "desserts":
+        return "دسر";
       default:
         return category;
     }
   };
 
   const getCustomerTier = (totalSpent: number) => {
-    if (totalSpent >= 500000) return { tier: 'VIP', color: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' };
-    if (totalSpent >= 200000) return { tier: 'طلایی', color: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200' };
-    if (totalSpent >= 100000) return { tier: 'نقره‌ای', color: 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200' };
-    return { tier: 'برنزی', color: 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200' };
+    if (totalSpent >= 500000)
+      return {
+        tier: "VIP",
+        color:
+          "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200",
+      };
+    if (totalSpent >= 200000)
+      return {
+        tier: "طلایی",
+        color:
+          "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+      };
+    if (totalSpent >= 100000)
+      return {
+        tier: "نقره‌ای",
+        color: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200",
+      };
+    return {
+      tier: "برنزی",
+      color:
+        "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200",
+    };
   };
 
   return (
@@ -137,8 +152,12 @@ const AdminCustomers = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">مدیریت مشتریان</h1>
-          <p className="text-gray-600 dark:text-gray-400">مدیریت اطلاعات و تاریخچه مشتریان</p>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            مدیریت مشتریان
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            مدیریت اطلاعات و تاریخچه مشتریان
+          </p>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-sm text-gray-600 dark:text-gray-400">
@@ -183,7 +202,9 @@ const AdminCustomers = () => {
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                       {customer.name}
                     </h3>
-                    <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${tier.color}`}>
+                    <span
+                      className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${tier.color}`}
+                    >
                       {tier.tier}
                     </span>
                   </div>
@@ -217,32 +238,42 @@ const AdminCustomers = () => {
                   <div className="text-2xl font-bold text-gray-900 dark:text-white">
                     {customer.totalOrders}
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">سفارش</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">
+                    سفارش
+                  </div>
                 </div>
                 <div className="text-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                   <div className="text-2xl font-bold text-gray-900 dark:text-white">
                     {formatPrice(customer.totalSpent)}
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">کل خرید</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">
+                    کل خرید
+                  </div>
                 </div>
               </div>
 
               {/* Additional info */}
               <div className="space-y-2 mb-4 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">میانگین سفارش:</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    میانگین سفارش:
+                  </span>
                   <span className="font-medium text-gray-900 dark:text-white">
                     {formatPrice(customer.averageOrderValue)}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">آخرین سفارش:</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    آخرین سفارش:
+                  </span>
                   <span className="font-medium text-gray-900 dark:text-white">
                     {formatDate(customer.lastOrderDate)}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600 dark:text-gray-400">دسته محبوب:</span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    دسته محبوب:
+                  </span>
                   <span className="font-medium text-gray-900 dark:text-white">
                     {getCategoryLabel(customer.favoriteCategory)}
                   </span>

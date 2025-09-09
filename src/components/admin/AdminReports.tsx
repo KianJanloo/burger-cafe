@@ -2,24 +2,12 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { 
-  MdTrendingUp as TrendingUp,
-  MdTrendingDown as TrendingDown,
-  MdAttachMoney as DollarSign,
-  MdShoppingCart as ShoppingCart,
-  MdPeople as Users,
-  MdAccessTime as Clock,
-  MdBarChart as BarChart3,
-  MdPieChart as PieChart,
-  MdDownload as Download,
-  MdCalendarToday as Calendar,
-  MdFilterList as Filter
-} from "react-icons/md";
 import useOrderStore from "@/store/orderStore";
+import { BarChart3, DollarSign, Download, ShoppingCart, TrendingDown, TrendingUp, Users } from "lucide-react";
 
 const AdminReports = () => {
   const { orders } = useOrderStore();
-  const [dateRange, setDateRange] = useState("7"); // days
+  const [dateRange, setDateRange] = useState("7");
   const [reportData, setReportData] = useState({
     totalRevenue: 0,
     totalOrders: 0,
@@ -27,7 +15,7 @@ const AdminReports = () => {
     totalCustomers: 0,
     revenueGrowth: 0,
     orderGrowth: 0,
-    topSellingItems: [] as any[],
+    topSellingItems: [] as { name: string; quantity: number; revenue: number }[],
     ordersByStatus: {} as Record<string, number>,
     ordersByType: {} as Record<string, number>,
     revenueByCategory: {} as Record<string, number>,

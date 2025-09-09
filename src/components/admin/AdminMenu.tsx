@@ -2,22 +2,20 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { 
-  MdAdd as Plus,
-  MdEdit as Edit,
-  MdDelete as Trash2,
-  MdVisibility as Eye,
-  MdVisibilityOff as EyeOff,
-  MdSearch as Search,
-  MdFilterList as Filter,
-  MdRestaurant as ChefHat,
-  MdLocalCafe as Coffee,
-  MdIceCream as IceCream,
-  MdWaterDrop as Droplets,
-  MdLocalFireDepartment as Flame
+import {
+  MdEdit,
+  MdDelete,
+  MdVisibility,
+  MdVisibilityOff,
+  MdSearch,
+  MdLocalCafe,
+  MdWaterDrop,
+  MdLocalFireDepartment,
+  MdIcecream
 } from "react-icons/md";
 import { menuItems } from "@/data/menuItems";
 import { MenuItem } from "@/types/order";
+import { ChefHat, Plus } from "lucide-react";
 
 const AdminMenu = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -53,10 +51,10 @@ const AdminMenu = () => {
   const categories = [
     { value: "all", label: "همه دسته‌ها", icon: ChefHat },
     { value: "classic", label: "کلاسیک", icon: ChefHat },
-    { value: "spicy", label: "تند", icon: Flame },
-    { value: "vegetarian", label: "گیاهی", icon: Coffee },
-    { value: "drinks", label: "نوشیدنی", icon: Droplets },
-    { value: "desserts", label: "دسر", icon: IceCream },
+    { value: "spicy", label: "تند", icon: MdLocalFireDepartment },
+    { value: "vegetarian", label: "گیاهی", icon: MdLocalCafe },
+    { value: "drinks", label: "نوشیدنی", icon: MdWaterDrop },
+    { value: "desserts", label: "دسر", icon: MdIcecream },
   ];
 
   const getCategoryIcon = (category: string) => {
@@ -114,7 +112,7 @@ const AdminMenu = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Search */}
           <div className="relative">
-            <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <MdSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="جستجو در منو..."
@@ -181,9 +179,9 @@ const AdminMenu = () => {
                   </div>
                   <div className="flex items-center gap-1">
                     {item.isAvailable ? (
-                      <Eye className="w-5 h-5 text-green-500" />
+                      <MdVisibility className="w-5 h-5 text-green-500" />
                     ) : (
-                      <EyeOff className="w-5 h-5 text-red-500" />
+                      <MdVisibilityOff className="w-5 h-5 text-red-500" />
                     )}
                   </div>
                 </div>
@@ -220,11 +218,11 @@ const AdminMenu = () => {
                 {/* Actions */}
                 <div className="flex items-center gap-2">
                   <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-sm text-blue-600 hover:text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-colors duration-200">
-                    <Edit className="w-4 h-4" />
+                    <MdEdit className="w-4 h-4" />
                     ویرایش
                   </button>
                   <button className="flex-1 flex items-center justify-center gap-2 px-3 py-2 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors duration-200">
-                    <Trash2 className="w-4 h-4" />
+                    <MdDelete className="w-4 h-4" />
                     حذف
                   </button>
                 </div>

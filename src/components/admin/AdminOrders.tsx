@@ -3,16 +3,14 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { 
-  MdSearch as Search,
-  MdFilterList as Filter,
-  MdMoreVert as MoreVertical,
-  MdVisibility as Eye,
-  MdCheckCircle as CheckCircle,
-  MdAccessTime as Clock,
-  MdCancel as XCircle,
-  MdLocalShipping as Truck,
-  MdRestaurant as ChefHat,
-  MdShoppingCart as ShoppingCart
+  MdSearch,
+  MdVisibility,
+  MdCheckCircle,
+  MdAccessTime,
+  MdCancel,
+  MdLocalShipping,
+  MdRestaurant,
+  MdShoppingCart
 } from "react-icons/md";
 import useOrderStore from "@/store/orderStore";
 import { Order } from "@/types/order";
@@ -114,13 +112,13 @@ const AdminOrders = () => {
   const getTypeIcon = (type: string) => {
     switch (type) {
       case 'dine-in':
-        return ChefHat;
+        return MdRestaurant;
       case 'takeaway':
-        return Clock;
+        return MdAccessTime;
       case 'delivery':
-        return Truck;
+        return MdLocalShipping;
       default:
-        return Clock;
+        return MdAccessTime;
     }
   };
 
@@ -129,12 +127,12 @@ const AdminOrders = () => {
   };
 
   const statusOptions = [
-    { value: 'pending', label: 'در انتظار', icon: Clock },
-    { value: 'confirmed', label: 'تایید شده', icon: CheckCircle },
-    { value: 'preparing', label: 'در حال آماده‌سازی', icon: ChefHat },
-    { value: 'ready', label: 'آماده', icon: CheckCircle },
-    { value: 'delivered', label: 'تحویل داده شده', icon: Truck },
-    { value: 'cancelled', label: 'لغو شده', icon: XCircle },
+    { value: 'pending', label: 'در انتظار', icon: MdAccessTime },
+    { value: 'confirmed', label: 'تایید شده', icon: MdCheckCircle },
+    { value: 'preparing', label: 'در حال آماده‌سازی', icon: MdRestaurant },
+    { value: 'ready', label: 'آماده', icon: MdCheckCircle },
+    { value: 'delivered', label: 'تحویل داده شده', icon: MdLocalShipping },
+    { value: 'cancelled', label: 'لغو شده', icon: MdCancel },
   ];
 
   return (
@@ -157,7 +155,7 @@ const AdminOrders = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Search */}
           <div className="relative">
-            <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <MdSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="جستجو در سفارشات..."
@@ -273,7 +271,7 @@ const AdminOrders = () => {
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                       <div className="flex items-center gap-2">
                         <button className="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300">
-                          <Eye className="w-4 h-4" />
+                          <MdVisibility className="w-4 h-4" />
                         </button>
                         <select
                           value={order.status}
@@ -297,7 +295,7 @@ const AdminOrders = () => {
 
         {filteredOrders.length === 0 && (
           <div className="text-center py-12">
-            <ShoppingCart className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+            <MdShoppingCart className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-500 dark:text-gray-400">هیچ سفارشی یافت نشد</p>
           </div>
         )}
