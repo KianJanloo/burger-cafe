@@ -47,7 +47,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   ];
 
   return (
-    <div className="max-h-screen bg-gray-50 dark:bg-gray-900 flex overflow-hidden">
+    <div className="max-h-screen bg-gray-50 dark:bg-gray-900 flex flex-row overflow-hidden">
 
       {/* Sidebar */}
       <div className={`
