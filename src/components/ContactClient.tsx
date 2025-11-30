@@ -96,8 +96,8 @@ const ContactClient = () => {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -153,9 +153,9 @@ const ContactClient = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8"
+            className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 sm:p-8"
           >
-            <h2 className="text-3xl font-playfair font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl font-playfair font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
               {t('form.title')}
             </h2>
 
@@ -171,7 +171,7 @@ const ContactClient = () => {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                       {t('form.name')} *
@@ -204,7 +204,7 @@ const ContactClient = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                       {t('form.phone')}
@@ -281,7 +281,7 @@ const ContactClient = () => {
             {t('faq.title')}
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                 {t('faq.reservation.q')}

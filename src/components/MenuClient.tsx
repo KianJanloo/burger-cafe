@@ -237,15 +237,17 @@ const MenuClient = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 inline-flex items-center gap-4 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-white"
+              className="mt-6 md:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 bg-white/20 backdrop-blur-sm rounded-full px-4 sm:px-6 py-3 text-white w-full sm:w-auto"
             >
-              <ShoppingCart className="w-6 h-6" />
-              <span className="font-semibold">
-                {cartSummary.totalItems} آیتم - {cartSummary.total.toLocaleString('fa-IR')} تومان
-              </span>
+              <div className="flex items-center gap-2 sm:gap-4">
+                <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
+                <span className="text-sm sm:text-base font-semibold text-center">
+                  {cartSummary.totalItems} آیتم - {cartSummary.total.toLocaleString('fa-IR')} تومان
+                </span>
+              </div>
               <a
                 href={`/${locale}/order`}
-                className="bg-white text-red-600 px-4 py-2 rounded-full font-semibold hover:bg-red-50 transition-colors"
+                className="bg-white text-red-600 px-4 py-2 rounded-full text-sm sm:text-base font-semibold hover:bg-red-50 transition-colors whitespace-nowrap"
               >
                 مشاهده سبد خرید
               </a>
@@ -271,12 +273,12 @@ const MenuClient = () => {
             </div>
 
             {/* Categories */}
-            <div className="flex flex-wrap gap-2 max-md:justify-center">
+            <div className="flex flex-wrap gap-2 justify-center sm:justify-start overflow-x-auto pb-2 -mx-2 px-2 scrollbar-hide">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setActiveCategory(category.id)}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full text-sm sm:text-base transition-all duration-300 whitespace-nowrap ${
                     activeCategory === category.id
                       ? "bg-red-600 text-white"
                       : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -294,7 +296,7 @@ const MenuClient = () => {
       {/* Menu Items */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -345,13 +347,13 @@ const MenuClient = () => {
                   </div>
 
                   {/* Price and Order Button */}
-                  <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-red-600 dark:text-red-400">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+                    <div className="text-xl sm:text-2xl font-bold text-red-600 dark:text-red-400">
                       {item.price.toLocaleString()} تومان
                     </div>
                     <button 
                       onClick={() => handleAddToCart(item)}
-                      className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:from-red-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                      className="bg-gradient-to-r from-red-600 to-orange-500 text-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold hover:from-red-700 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 flex items-center gap-2 w-full sm:w-auto justify-center"
                     >
                       <Plus className="w-4 h-4" />
                       {t('order')}

@@ -107,10 +107,10 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
         {/* Checkout Form */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             {t('title')}
           </h2>
 
@@ -120,7 +120,7 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                 {t('orderType')}
               </label>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {[
                   { value: 'dine-in', label: t('dineIn'), icon: FaClock },
                   { value: 'takeaway', label: t('takeaway'), icon: FaMapPin },
@@ -130,14 +130,14 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
                     key={value}
                     type="button"
                     onClick={() => handleInputChange('orderType', value)}
-                    className={`p-3 rounded-lg border-2 transition-colors ${
+                    className={`p-2 sm:p-3 rounded-lg border-2 transition-colors ${
                       formData.orderType === value
                         ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300'
                         : 'border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500'
                     }`}
                   >
-                    <Icon className="w-5 h-5 mx-auto mb-1" />
-                    <span className="text-sm font-medium">{label}</span>
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 mx-auto mb-1" />
+                    <span className="text-xs sm:text-sm font-medium">{label}</span>
                   </button>
                 ))}
               </div>
@@ -250,8 +250,8 @@ export default function Checkout({ onBack, onSuccess }: CheckoutProps) {
         </div>
 
         {/* Order Summary */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-4">
             {t('orderSummary')}
           </h3>
 

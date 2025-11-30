@@ -77,7 +77,7 @@ const Testimonials = () => {
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -88,7 +88,7 @@ const Testimonials = () => {
               className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 relative"
             >
               {/* Quote Icon */}
-              <div className="absolute top-4 right-4 text-red-200">
+              <div className="absolute top-4 left-4 text-red-200">
                 <Quote className="w-8 h-8" />
               </div>
 
@@ -126,22 +126,22 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="mt-20 bg-gradient-to-r from-red-600 to-orange-500 rounded-2xl p-8 text-white"
         >
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold mb-2">1000+</div>
-              <div className="text-red-100">{t('stats.happyCustomers')}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">1000+</div>
+              <div className="text-sm sm:text-base text-red-100">{t('stats.happyCustomers')}</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">4.9</div>
-              <div className="text-red-100">{t('stats.averageRating')}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">4.9</div>
+              <div className="text-sm sm:text-base text-red-100">{t('stats.averageRating')}</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">20</div>
-              <div className="text-red-100">{t('stats.yearsExperience')}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">20</div>
+              <div className="text-sm sm:text-base text-red-100">{t('stats.yearsExperience')}</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">50+</div>
-              <div className="text-red-100">{t('stats.burgerTypes')}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">50+</div>
+              <div className="text-sm sm:text-base text-red-100">{t('stats.burgerTypes')}</div>
             </div>
           </div>
         </motion.div>
